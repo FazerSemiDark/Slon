@@ -2,22 +2,19 @@ package org.example;
 
 import java.util.Scanner;
 
-public class SlonCli
-{
-    static void main()
-    {
-        Slon slon = new Slon();
-        System.out.println(slon.greeting());
-        Scanner scanner = new Scanner(System.in);
-        while (true) {
-            String line = scanner.nextLine();
-            if (slon.isExitCommand(line)) {
-                return;
+public class SlonCli {
+    public static void main(String[] args) {
+        Slon seller = new Slon();
+        System.out.println(seller.hello());
+
+        try (Scanner in = new Scanner(System.in)) {
+            String text;
+            while ((text = in.nextLine()) != null && !seller.exitCommand(text)) {
+                if (!text.isEmpty()) {
+                    System.out.println();
+                }
+                System.out.println(seller.react(text));
             }
-            if (!line.isEmpty()) {
-                System.out.println();
-            }
-            System.out.println(slon.respond(line));
         }
     }
 }

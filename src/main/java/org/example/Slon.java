@@ -1,23 +1,22 @@
 package org.example;
 
-public class Slon
-{
-    private static final String CMD_HELP = "\\help";
-    private static final String CMD_EXIT = "\\exit";
-    private static final String QUESTION = "Купи слона!";
-    private static final String REPEAT_QUESTION = "А ты купи слона!";
-    public String greeting() {
-        return String.format(
-                "Привет!\nЯ - продавец слона\nДля справки используй %s или\n%s\n",
-                CMD_HELP, QUESTION);
+public class Slon {
+    public static final String HELP_COMMAND = "\\help";
+    public static final String QUIT_COMMAND = "\\exit";
+
+    public String hello() {
+        return "Привет!\nЯ - продавец слона\nДля справки используй " + HELP_COMMAND
+                + " или\n" + "Купи слона!" + "\n" + "Для выхода используй " + QUIT_COMMAND + "\n";
     }
-    public boolean isExitCommand(String line) {
-        return line.equals(CMD_EXIT);
+
+    public boolean exitCommand(String input) {
+        return QUIT_COMMAND.equals(input);
     }
-    public String respond(String line) {
-        if (line.equals(CMD_HELP)) {
-            return greeting();
+
+    public String react(String input) {
+        if (HELP_COMMAND.equals(input)) {
+            return hello();
         }
-        return String.format("Все говорят \"%s\".\n%s\n", line, REPEAT_QUESTION);
+        return "Все говорят \"" + input + "\".\n" + "А ты купи слона!" + "\n";
     }
 }
