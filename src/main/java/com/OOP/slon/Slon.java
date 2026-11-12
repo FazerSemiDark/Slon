@@ -1,4 +1,4 @@
-package org.example;
+package com.oop.slon;
 
 public class Slon {
     public static final String HELP_COMMAND = "\\help";

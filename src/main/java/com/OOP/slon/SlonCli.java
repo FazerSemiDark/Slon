@@ -1,4 +1,4 @@
-package org.example;
+package com.oop.slon;
 
 import java.util.Scanner;
 
